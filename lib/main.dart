@@ -1,7 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:smartmeterapp/Screens/auth.dart';
+import 'package:smartmeterapp/Screens/homescreen.dart';
+import 'package:smartmeterapp/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: true,
+  );
   runApp(const MyApp());
 }
 
@@ -12,13 +24,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter smart',
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(212, 170, 32, 172)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(210, 39, 132, 172),
+            brightness: Brightness.light),
         useMaterial3: true,
       ),
-      home: const AuthScreen(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: ((context, snapshot) {
+          if (snapshot.hasData) {
+            return MeterScreen();
+          }
+
+          return const AuthScreen();
+        }),
+      ),
     );
   }
 }

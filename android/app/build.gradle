@@ -1,9 +1,10 @@
-plugins {
-    id "com.android.application"
-    id "kotlin-android"
-    id "dev.flutter.flutter-gradle-plugin"
-}
-
+ plugins {
+     id "com.android.application"
+     id "dev.flutter.flutter-gradle-plugin"
+     id "org.jetbrains.kotlin.android"
+     id "com.google.gms.google-services"
+     id "com.google.firebase.crashlytics"
+ }
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -22,9 +23,11 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+
+
 android {
     namespace "com.example.smartmeterapp"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion flutter.compileSdkVersion  //try 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -49,6 +52,8 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
+
     }
 
     buildTypes {
@@ -64,4 +69,7 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+     implementation "androidx.multidex:multidex:2.0.1"
+
+}

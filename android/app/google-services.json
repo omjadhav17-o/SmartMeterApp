@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90542325897",
+    "project_id": "smart-meter-b7d40",
+    "storage_bucket": "smart-meter-b7d40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90542325897:android:68632a26435ea66b898658",
+        "android_client_info": {
+          "package_name": "com.example.smartmeterapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHZxy82crY3rzvZCbHw-ok77V42pDJ8iI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
