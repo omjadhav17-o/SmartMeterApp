@@ -1,16 +1,61 @@
-# smartmeterapp
+# Smart Meter App – IoT Energy Monitor ⚡
 
-A new Flutter project.
+**Tech Stack:** Flutter | Firebase | AWS IoT Core | MQTT | Python  
 
-## Getting Started
+This application is a real-time IoT based energy monitoring system that displays live smart-meter data on a Flutter mobile app. The system collects power consumption values from a smart meter device, sends them via MQTT to AWS IoT Core, processes them using Python services, and updates Firebase in real time — which is reflected instantly in the Flutter UI.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 📡 **Real-Time Data Streaming** from smart meter  
+- ☁️ MQTT communication via **AWS IoT Core**  
+- 🔥 Live synchronization using **Firebase Realtime Database / Firestore**  
+- 📱 Cross-platform mobile app built with **Flutter**  
+- 📊 Displays:
+  - Voltage  
+  - Current  
+  - Power Consumption  
+  - Energy Units  
+- 📈 Dynamic UI updates without refresh  
+- Secure device authentication using AWS certificates
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🧠 How It Works (System Flow)
+
+1. **Smart Meter Device**
+   - Reads electrical parameters (voltage, current, power, units)
+   - Sends data via MQTT protocol
+
+2. **AWS IoT Core**
+   - Receives MQTT messages from the device  
+   - Manages device authentication & topics  
+   - Forwards data to backend services
+
+3. **Python Middleware**
+   - Subscribes to MQTT topics  
+   - Processes and formats incoming data  
+   - Pushes structured data to Firebase
+
+4. **Firebase → Flutter App**
+   - Firebase acts as real-time backend  
+   - Flutter listens to Firebase streams  
+   - UI updates instantly whenever new meter data arrives
+
+---
+
+## 📱 App Functionality
+
+- Live dashboard showing:
+  - Current power usage  
+  - Daily energy consumption  
+  - Historical trends  
+- Auto refresh using Firebase listeners  
+- Error handling for device offline state  
+- Clean and responsive UI
+
+---
+
+## 🛠 Tech Architecture
+
