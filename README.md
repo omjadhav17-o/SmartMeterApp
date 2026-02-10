@@ -3,8 +3,14 @@
 **Tech Stack:** Flutter | Firebase | AWS IoT Core | MQTT | Python  
 
 This application is a real-time IoT based energy monitoring system that displays live smart-meter data on a Flutter mobile app. The system collects power consumption values from a smart meter device, sends them via MQTT to AWS IoT Core, processes them using Python services, and updates Firebase in real time — which is reflected instantly in the Flutter UI.
+<p align="center">
+  <img src="assets/DashBoard.jpeg" width="280">
+</p>
 
-![Dashboard](assets/images/dashboard.png)
+<p align="center">
+  <img src="assets/stats.jpeg" width="280">
+</p>
+
 ---
 
 ## 🚀 Features
